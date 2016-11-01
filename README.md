@@ -1,4 +1,4 @@
-# LAGREGATOR
+# LAGREGATOR [![Build Status](https://travis-ci.org/lostmars/lagregator.svg?branch=master)](https://travis-ci.org/lostmars/lagregator)
 
 Easy way to merge `lagger.Logger`s outputs (https://github.com/cloudfoundry/lager)
 
