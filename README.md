@@ -7,9 +7,9 @@ Easy way to merge `lagger.Logger`s outputs (https://github.com/cloudfoundry/lage
 
 It's a io.Writer that you can pass to another logger and have its log messages redirected to a destination logger:
 
-```
+```go
 func ExecuteThat(logger lager.Logger) {
-  desinationLogger := logger.Session("
+  desinationLogger := logger.Session("execute-that")
   cmd := exec.Command("command-that-outputs-lager-log-messages")
   cmd.Stdout = lagregator.NewRelogger(destinationLogger)
   cmd.Run()
@@ -24,9 +24,9 @@ be relogged to `destinationLogger` on the fly.
 
 It's relogs a given stream:
 
-```
+```go
 func ExecuteThat(logger lager.Logger) {
-  desinationLogger := logger.Session("
+  desinationLogger := logger.Session("execute-that")
   pipeW, pipeR, _ := os.Pipe()
 
   cmd := exec.Command("command-that-outputs-lager-log-messages")
@@ -41,9 +41,9 @@ func ExecuteThat(logger lager.Logger) {
 
 It's relogs a given bytes array:
 
-```
+```go
 func ExecuteThat(logger lager.Logger) {
-  desinationLogger := logger.Session("
+  desinationLogger := logger.Session("execute-that")
   cmd := exec.Command("command-that-outputs-lager-log-messages")
   output, _ := cmd.Output()
 
