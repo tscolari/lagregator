@@ -14,8 +14,8 @@ func RelogBytes(destination lager.Logger, source []byte) {
 }
 
 func RelogStream(destination lager.Logger, input io.Reader) {
-	entries := make(chan chug.Entry, 1000)
-	chug.Chug(input, entries)
+	entries := make(chan chug.Entry)
+	go chug.Chug(input, entries)
 	for entry := range entries {
 		if entry.IsLager {
 			relog(destination, entry.Log)
